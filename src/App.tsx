@@ -1,24 +1,76 @@
+import { type } from 'os';
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import InputFeild from './components/InputFeild'
 
-function App() {
+let name: string;
+let age:number;
+let isStudent:boolean;
+let hobbies:string[];
+let role:[number, string];
+
+
+// let printName:(name:string) => void;
+
+
+
+
+
+// function printName(name:string){
+//   console.log(name);
+// }
+
+// printName('piyush');
+
+// type Person = {
+//   name:string,
+//   age?:number,
+// }
+
+// let person: Person = {
+//   name:'piyush',
+// };
+
+// let lotsOfPeople:Person[] ;
+
+
+type X = {
+  a:string;
+  b:number;
+}
+
+interface Person extends X {
+  name:string,
+  age?:number,
+}
+
+
+interface Guy extends Person {
+  profession:string,
+}
+
+// class name extends Person {}
+
+// type X = {
+//   a:string;
+//   b:number;
+// }
+
+type Y = {
+  c:string;
+  d:number;
+}
+
+let y: Y = {
+  c : 'asddf',
+  d: 42,
+}
+
+const App:React.FC = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <span className='heading'>Taskify</span>
+      <InputFeild/>
     </div>
   );
 }
