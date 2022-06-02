@@ -5,10 +5,14 @@ import SingleTodo from './SingleTodo';
 import './styles.css';
 
 interface Props {
-    todos: Todo[];
-    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
-    completedTodos: Todo[];
-    setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+    // todos: Todo[];
+    todos: Array<Todo>;
+    // setTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+    setTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
+    // completedTodos: Todo[];
+    completedTodos: Array<Todo>;
+    // setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
+    setCompletedTodos: React.Dispatch<React.SetStateAction<Array<Todo>>>;
 }
 
 const TodoList: React.FC<Props> = ({todos, setTodos, completedTodos, setCompletedTodos}) => {
@@ -21,7 +25,7 @@ const TodoList: React.FC<Props> = ({todos, setTodos, completedTodos, setComplete
           <span className="todos_heading">
             Active Tasks
           </span>{
-            todos.map((todo, index) => (
+            todos?.map((todo, index) => (
               <SingleTodo todo={todo} key={todo.id} index={index}
                   todos={todos}
                   setTodos={setTodos}
