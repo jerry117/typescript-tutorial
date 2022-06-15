@@ -1,9 +1,13 @@
-import React , {useState} from 'react';
+import React , { useEffect, useState} from 'react';
 import './App.css';
 import InputFeild from './components/InputFeild'
 import TodoList from './components/TodoList';
 import {Todo} from './model';
 import {DragDropContext, DropResult} from 'react-beautiful-dnd'
+
+
+var obj = {1:3};
+console.log(obj);
 
 
 
@@ -22,6 +26,13 @@ const App:React.FC = () => {
       setTodo('');
     }
   };
+
+  const [count, setCount] = useState(0);
+
+  // useEffect(() => {
+  //   document.title = `you clicked ${count} times`;
+  // });
+
 
 
   const onDragEnd = (result: DropResult) => {
@@ -61,8 +72,18 @@ const App:React.FC = () => {
       <TodoList todos={todos} setTodos={setTodos} completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
       
     </div>
+    <div>
+        <p>You clicked {count} times</p>
+        <button onClick={() => setCount(count + 1 )}>
+          Click me
+        </button>
+      </div>
    </DragDropContext>
+   
   );
 }
+
+
+
 
 export default App;
