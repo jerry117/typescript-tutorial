@@ -6,11 +6,6 @@ import {Todo} from './model';
 import {DragDropContext, DropResult} from 'react-beautiful-dnd'
 
 
-var obj = {1:3};
-console.log(obj);
-
-
-
 
 const App:React.FC = () => {
   const [todo, setTodo] = useState<string >('');
@@ -28,10 +23,16 @@ const App:React.FC = () => {
   };
 
   const [count, setCount] = useState(0);
+  const [isOnline, setIsOnline] = useState(null);
 
-  // useEffect(() => {
-  //   document.title = `you clicked ${count} times`;
-  // });
+  function handleStatusChange(status:any){
+    setIsOnline(status.isOnline);
+  }
+
+
+  useEffect(() => {
+    document.title = `you clicked ${count} times`;
+  });
 
 
 
@@ -82,8 +83,6 @@ const App:React.FC = () => {
    
   );
 }
-
-
 
 
 export default App;
